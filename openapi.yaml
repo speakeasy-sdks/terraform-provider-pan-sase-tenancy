@@ -234,7 +234,6 @@ components:
                 statusCode: 400
       description: ''
     tenant_service_groups_response:
-      x-speakeasy-entity: tenant_service_group
       content:
         application/json:
           examples:
@@ -388,6 +387,7 @@ components:
         type: object
       type: object
     tenant_service_group_create:
+      x-speakeasy-entity: tenant_service_group
       allOf:
       - properties:
           display_name:
