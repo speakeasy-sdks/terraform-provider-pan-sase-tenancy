@@ -7,6 +7,7 @@ components:
       in: path
       name: tsg_id
       required: true
+      x-speakeasy-match: id
       schema:
         $ref: '#/components/schemas/_id'
   responses:
