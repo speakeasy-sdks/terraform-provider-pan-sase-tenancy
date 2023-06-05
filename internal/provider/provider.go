@@ -5,6 +5,7 @@ package provider
 import (
 	"context"
 	"pan-sase-tenancy/internal/sdk"
+	"pan-sase-tenancy/internal/sdk/pkg/models/shared"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
@@ -25,6 +26,7 @@ type PanSaseTenancyProvider struct {
 // PanSaseTenancyProviderModel describes the provider data model.
 type PanSaseTenancyProviderModel struct {
 	ServerURL types.String `tfsdk:"server_url"`
+	Bearer    types.String `tfsdk:"bearer"`
 }
 
 func (p *PanSaseTenancyProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
@@ -39,6 +41,10 @@ func (p *PanSaseTenancyProvider) Schema(ctx context.Context, req provider.Schema
 				MarkdownDescription: "Server URL (defaults to https://api.sase.paloaltonetworks.com)",
 				Optional:            true,
 				Required:            false,
+			},
+			"bearer": schema.StringAttribute{
+				Optional:  true,
+				Sensitive: true,
 			},
 		},
 	}
@@ -59,8 +65,14 @@ func (p *PanSaseTenancyProvider) Configure(ctx context.Context, req provider.Con
 		ServerURL = "https://api.sase.paloaltonetworks.com"
 	}
 
+	bearer := data.Bearer.ValueString()
+	security := shared.Security{
+		Bearer: bearer,
+	}
+
 	opts := []sdk.SDKOption{
 		sdk.WithServerURL(ServerURL),
+		sdk.WithSecurity(security),
 	}
 	client := sdk.New(opts...)
 

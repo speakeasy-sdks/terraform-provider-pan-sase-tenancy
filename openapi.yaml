@@ -788,3 +788,5 @@ servers:
   - url: https://api.sase.paloaltonetworks.com
 tags:
   - name: TenantServiceGroup
+security:
+  - Bearer: []

@@ -50,6 +50,7 @@ internal/sdk/pkg/models/operations/puttenancyv1tenantservicegroupstsgid.go
 internal/sdk/pkg/models/shared/tenantservicegroup.go
 internal/sdk/pkg/models/shared/tenantservicegroupcreate.go
 internal/sdk/pkg/models/shared/tenantservicegroupupdate.go
+internal/sdk/pkg/models/shared/security.go
 USAGE.md
 internal/provider/provider.go
 internal/provider/tenant_service_group_resource.go

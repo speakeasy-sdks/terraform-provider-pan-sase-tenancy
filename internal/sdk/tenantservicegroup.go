@@ -53,7 +53,7 @@ func (s *tenantServiceGroup) DeleteTenancyV1TenantServiceGroupsTsgID(ctx context
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -119,7 +119,7 @@ func (s *tenantServiceGroup) GetTenancyV1TenantServiceGroups(ctx context.Context
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -182,7 +182,7 @@ func (s *tenantServiceGroup) GetTenancyV1TenantServiceGroupsTsgID(ctx context.Co
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s.language, s.sdkVersion, s.genVersion))
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -255,7 +255,7 @@ func (s *tenantServiceGroup) PostTenancyV1TenantServiceGroups(ctx context.Contex
 
 	req.Header.Set("Content-Type", reqContentType)
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -328,7 +328,7 @@ func (s *tenantServiceGroup) PostTenancyV1TenantServiceGroupsTsgIDOperationsList
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -399,7 +399,7 @@ func (s *tenantServiceGroup) PostTenancyV1TenantServiceGroupsTsgIDOperationsList
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
@@ -475,7 +475,7 @@ func (s *tenantServiceGroup) PutTenancyV1TenantServiceGroupsTsgID(ctx context.Co
 
 	req.Header.Set("Content-Type", reqContentType)
 
-	client := s.defaultClient
+	client := s.securityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil {
